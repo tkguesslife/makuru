@@ -44,7 +44,7 @@ class CurrencyInventory
 
     /**
      * @var float
-     * @ORM\Column(name="discount_percentage" ,type="decimal", nullable=true, precision=38, scale=2)
+     * @ORM\Column(name="discount_percentage" ,type="decimal", nullable=false, precision=38, scale=2)
      */
     private $discountPercentage;
 
@@ -138,29 +138,5 @@ class CurrencyInventory
     public function getCurrency()
     {
         return $this->currency;
-    }
-
-    /**
-     * Set surchange
-     *
-     * @param string $surchange
-     *
-     * @return CurrencyInventory
-     */
-    public function setSurchange($surchange)
-    {
-        $this->surchange = $surchange;
-
-        return $this;
-    }
-
-    /**
-     * Get surchange
-     *
-     * @return string
-     */
-    public function getSurchange()
-    {
-        return $this->surchange;
     }
 }
