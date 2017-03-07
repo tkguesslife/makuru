@@ -1,0 +1,9 @@
+api.currency_inventory:
+    type: rest
+    resource: AppBundle\Controller\CurrencyInventoryRestController
+    prefix: /currency-inventory/
+
+api.customer_order:
+    type: rest
+    resource: AppBundle\Controller\CustomerOrderRestController
+    prefix: /customer-order/

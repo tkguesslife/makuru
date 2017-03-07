@@ -5,7 +5,7 @@ namespace AppBundle\Services\User;
 
 use Doctrine\ORM\EntityManager;
 use Monolog\Logger;
-
+use JMS\DiExtraBundle\Annotation as DI;
 
 /**
  * Class UserManager

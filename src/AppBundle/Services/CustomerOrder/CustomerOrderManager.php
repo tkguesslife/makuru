@@ -19,12 +19,12 @@ class CustomerOrderManager
 {
 
     /**
-     * @var Monolog logger
+     * @var Logger
      */
     protected $logger;
 
     /**
-     * @var Entity manager
+     * @var EntityManager
      */
     protected $em;
 
@@ -34,18 +34,16 @@ class CustomerOrderManager
     protected $userManager;
 
     /**
-     * UserManager constructor.
+     * CustomerOrderManager constructor.
      *
-     * @param EntityManager $em
      * @param Logger $logger
-     *
+     * @param EntityManager $em
+     * @param UserManager $userManager
      * @DI\InjectParams({
      *     "em"                  = @DI\Inject("doctrine.orm.entity_manager"),
      *     "logger"              = @DI\Inject("logger"),
      *     "userManager"              = @DI\Inject("user.manager")
      * })
-     * @param Logger $logger
-     * @param EntityManager $em
      */
     public function __construct(Logger $logger, EntityManager $em, UserManager $userManager)
     {
@@ -54,6 +52,8 @@ class CustomerOrderManager
         $this->userManager = $userManager;
 
     }
+
+
 
     /**
      * @param CustomerOrder $customerOrder
