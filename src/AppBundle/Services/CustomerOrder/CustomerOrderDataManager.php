@@ -36,6 +36,18 @@ class CustomerOrderDataManager
     protected $userManager;
 
     /**
+     * @var RestClient
+     */
+    protected $restClient;
+
+    /**
+     * Site Url
+     * @var String
+     * @DI\Inject("%site_url%")
+     */
+    public $siteUrl;
+
+    /**
      * CustomerOrderDataManager constructor.
      *
      * @param Logger $logger
@@ -53,20 +65,43 @@ class CustomerOrderDataManager
         $this->logger = $logger;
         $this->em = $em;
         $this->userManager = $userManager;
+        $this->restClient = $restClient;
 
     }
 
     public function process(){
 
+        $this->postMember();
+
+
+    }
+
+    /**
+     * @return mixed
+     */
+    private function postMember(){
+        $this->logger->info("customer.order.data.manager postMember()");
+        $this->logger->info("URL: ".$this->siteUrl.'/api/customer-order/create.json');
+        $responseStr = $this->restClient->post(
+            $this->siteUrl.'/api/customer-order/create.json',
+            $this->getJsonString()
+        )->getContent();
+        $this->logger->info($responseStr );
+
+        return json_decode($responseStr);
     }
 
 
+    /**
+     * @return string
+     */
     private function getJsonString(){
         $arrData = array(
             'zarAmount' => 5000,
             'foreignCurrency' => "GBP",
-            'foreignCurrency' => "GBP",
         );
+
+        return json_encode($arrData);
     }
 
 }

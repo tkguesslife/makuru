@@ -7,6 +7,9 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    mail.from.name: %mailer_from_name%
+    mail.from.email: %mailer_from_email%
+    env.site.url: %site_url%
 
 framework:
     #esi:             ~

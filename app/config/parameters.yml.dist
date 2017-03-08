@@ -17,3 +17,7 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    site_url: 'http://makuru.local/app_dev.php'
+
+    mailer_from_name: 'Tiko Banyini'
+    mailer_from_email: tbanyini@gmail.com
